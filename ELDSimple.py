@@ -67,7 +67,7 @@ class window(Frame):
         #creating the second of the three shortcut buttons
         self.button2 = Button(self.lbl, text="Email", font=('Arial 20'), bg="indian red", command=link_m, padx=339, pady=30)
         #creating the third of the three shortcut buttons
-        self.button3 = Button(self.lbl, text="Email", font=('Arial 20'), bg="indian red", command=link_m2, padx=339, pady=28)
+        self.button3 = Button(self.lbl, text="Email", font=('Arial 20'), bg="#FFAEFF", command=link_m2, padx=339, pady=28)
         #this button will activate search_query
         self.search1 = Button(self.lbl_search1, text="Search", font=('Arial 12'), command=search_query, padx=1, pady=5)
         #this button will activate search_query2
@@ -75,7 +75,8 @@ class window(Frame):
         #this is a help button that activates popup
         self.help_b = Button(self.lbl3, text="Help", bg="red4", font=('Arial 11'), command=popup, padx=11, pady=145)
 
-        #displays 
+        '''each line of code here is taking the previously
+         created widgets self.>>widget variable name<< and then calling the grid() function to display that widget in the grid'''   
         self.title_bar.grid(row=0, column=0, sticky="nw")
         self.title_label.grid(row=0, column=1)
         self.close_label.grid(row=0, column=6)
@@ -87,9 +88,6 @@ class window(Frame):
         self.lbl_yt_query.grid(row=4, column=1)
         self.lbl_search1.grid(row=0, column=2)
         self.lbl_search2.grid(row=4, column=2)
-        #creates space on grid
-       
-        
         self.lbl.grid(row=2, column=3)
         self.lbl3.grid(rowspan=3, row=1, column=2, columnspan=5)
         self.button1.grid(row=1, column=1)
@@ -98,70 +96,92 @@ class window(Frame):
         self.search1.grid(row=0, column=0, sticky="n")
         self.search2.grid(row=2, column=0, sticky="n")
         self.help_b.grid(row=1, column=0)
+        #these two lines add "Search Google" to the search_qg and search_yt entry widgets
         self.search_qg.insert(0, search_qg_text)
         self.search_yt.insert(0, search_yt_text)
 
 
-
+#closes the program 
 def quitter(e):
     quit()
 
+#allows user to move the screen where ever you like 
 def move_app(e):
     root1.geometry(f"+{e.x_root}+{e.y_root}")
 
+#deletes text within the search_qg entry widget and binds <return> to enter_query_qg function
 def delete_qg_text(e):
+    #turns search_yt_text into a global variable 
     global search_qg_text
     root.search_qg.delete(0, END)
     root.search_qg.insert(0, "")
     root.search_qg.bind("<Return>", enter_query_qg)
 
-
+#deletes text within the search_yt entry widget and binds <return> to enter_query_yt function
 def delete_yt_text(e):
+    #turns search_yt_text into a global variable 
     global search_yt_text
     root.search_yt.delete(0, END)
     root.search_yt.insert(0, "")
     root.search_yt.bind("<Return>", enter_query_yt)
 
+#adds search_qg entry widget contents to the url2 variable and then opens it in the webbrowser with "e" as event parameter  
 def enter_query_qg(e):
+    #turns url2 into a global variable 
     global url2
     if root.search_qg.get() == root.search_qg.get():
         url2 = url2 + root.search_qg.get()
         webbrowser.open(url2)
 
+#adds search_yt entry widget contents to the url variable and then opens it in the webbrowser with "e" as event parameter
 def enter_query_yt(e):
+    #turns url into a global variable 
     global url
     if root.search_yt.get() == root.search_yt.get():
         url = url + root.search_yt.get()
         webbrowser.open(url)
 
+#adds search_qg entry widget contents to the url2 variable and then opens it in the webbrowser
 def search_query():
+    #turns url2 into a global variable 
     global url2
     if root.search_qg.get() == root.search_qg.get():
         url2 = url2 + root.search_qg.get()
         webbrowser.open(url2)
 
+#adds search_yt entry widget contents to the url variable and then opens it in the webbrowser
 def search_query2():
+    #turns url into a global variable 
     global url
     if root.search_yt.get() == root.search_yt.get():
         url = url + root.search_yt.get()
         webbrowser.open(url)
 
+#opens url link 
 def link_e():
     webbrowser.open("https://mail.google.com/mail/u/0/#inbox")
 
+#opens url link
 def link_m():
     webbrowser.open("https://mail.google.com/mail/u/0/#inbox")
 
+#opens url link
 def link_m2():
     webbrowser.open("https://mail.google.com/mail/u/0/#inbox")
 
+#opens url link
 def popup():
     messagebox.askquestion('hello', 'hello')
 
-
+#initiating window object equal to root  
 root = window()
+#displaying window object
 root.grid()
+#binds close_label to left mouse click that activates quitter  
 root.close_label.bind("<Button-1>", quitter)
+#binds search_qg to left mouse click that activates delete_qg_text
 root.search_qg.bind("<Button-1>", delete_qg_text)
+#binds search_yt to left mouse click that activates delete_yt_text
 root.search_yt.bind("<Button-1>", delete_yt_text)
+
 root1.mainloop()
