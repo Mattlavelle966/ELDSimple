@@ -16,11 +16,11 @@ root1.overrideredirect(True)
 #changing background color 
 root1["bg"] = "indian red"
 
-#constructing the window class 
+#creating window class 
 class window(Frame):
-    #initializing window class 
+    #creating first constructor for the window class 
     def __init__(self):
-        #creating Frame, window object
+        #blueprinting/defining Frame, window object
         Frame.__init__(self)
         #creating new title bar to replace the default one 
         self.title_bar = Frame(self, bg="darkgreen", relief="raised", bd=1, padx=6, pady=3)
