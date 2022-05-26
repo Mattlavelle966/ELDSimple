@@ -14,7 +14,7 @@ root1.geometry("890x530")
 #removing default Title bar.
 root1.overrideredirect(True)
 #changing background color 
-root1["bg"] = "#003d80"
+root1["bg"] = "#001833"
 
 #creating window class 
 class window(Frame):
