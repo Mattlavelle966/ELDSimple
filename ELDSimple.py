@@ -10,11 +10,11 @@ search_yt_text = "Search Youtube"
 #tk is being initialized here and is creating our first window
 root1 = Tk()
 #geometry is setting the dimensions of the first window to "widthxheight"
-root1.geometry("884x532")
+root1.geometry("890x530")
 #removing default Title bar.
 root1.overrideredirect(True)
 #changing background color 
-root1["bg"] = "indian red"
+root1["bg"] = "#003d80"
 
 #creating window class 
 class window(Frame):
@@ -23,28 +23,28 @@ class window(Frame):
         #blueprinting/defining Frame, window object
         Frame.__init__(self)
         #creating new title bar to replace the default one 
-        self.title_bar = Frame(self, bg="darkgreen", relief="raised", bd=1, padx=6, pady=3)
+        self.title_bar = Frame(self, bg="#001833", relief="raised", bd=1, padx=6, pady=3)
         #adds text to new title bar        
         self.title_bar.bind("<B1-Motion>", move_app)
         #binds left mouse click to move_app func which allows user to move the program window anywhere  
-        self.title_label = Label(self.title_bar, text="ELDSimple", bg="darkgreen", font=("CenturySchoolbookl 10 bold"))
+        self.title_label = Label(self.title_bar, fg="#0062cc", text="ELDSimple", bg="#001833", font=("CenturySchoolbookl 10 bold"))
         #binds label to move app func 
         self.title_label.bind("<B1-Motion>", move_app)
 
         #close_label is adding a small x that will allow user to close the program 
-        self.close_label = Label(self.title_bar, text=" X ", bg="darkgreen", fg="white", relief="sunken")
+        self.close_label = Label(self.title_bar, text=" X ", bg="#001833", fg="#0062cc")
         #binds the close_label widget to the quitter fuction which will close the program     
         self.close_label.bind("<Button-1>", quitter)
         #space4 is creating a empty space in order to create the correct dimmensions for the title bar 
-        self.space4 = Label(self.title_bar, bg="darkgreen", padx=382, pady=0, text="  ")
+        self.space4 = Label(self.title_bar, bg="#001833", padx=385, pady=0, text="  ")
         #binding empty space to move app func
         self.space4.bind("<B1-Motion>", move_app)
        
        
         #creating the background frame 
-        self.bg_frame = LabelFrame(self, bg="indian red", padx=10, pady=10)
+        self.bg_frame = LabelFrame(self, bg="#001833", padx=10, pady=10)
         #creating inner frame with "ELDSimple"
-        self.lbl = LabelFrame(self.bg_frame, bg="indian red", fg="black", text="ELDSimple", padx=5, pady=5, font=('CenturySchoolbookl 10 bold'))
+        self.lbl = LabelFrame(self.bg_frame, bg="#001833", fg="#0062cc", text="ELDSimple", padx=5, pady=5, font=('CenturySchoolbookl 10 bold'))
         #lbl3 is creating a frame around our help button widget
         self.lbl3 = LabelFrame(self.lbl, padx=5, pady=5, bg="red4",)
         #creating a frame for the search1 button         
@@ -56,24 +56,24 @@ class window(Frame):
         #creating a frame around the youtube search entry widget 
         self.lbl_yt_query = LabelFrame(self.lbl, bg="maroon", padx=5, pady=5)
         #entry widget where the user can enter whatever they would like to search on google
-        self.search_qg = Entry(self.lbl_g_query, width=50, font=("Arial 20"), bg="indian red", fg="goldenrod")
+        self.search_qg = Entry(self.lbl_g_query, width=50, font=("Arial 20"), bg="#003d80", fg="goldenrod")
         #entry widget where the user can enter whatever they would like to search on youtube
-        self.search_yt = Entry(self.lbl_yt_query, width=50, font=("Arial 20"), bg="indian red", fg="maroon")
+        self.search_yt = Entry(self.lbl_yt_query, width=50, font=("Arial 20"), bg="#003d80", fg="maroon")
       
 
 
         #creating the first of the three shortcut buttons 
-        self.button1 = Button(self.lbl, text="Email", font=('Arial 20'), bg="indian red", command=link_e, padx=339, pady=29)
+        self.button1 = Button(self.lbl, text="Email", font=('Arial 20'),fg="#001833", bg="#003d80", command=link_e, padx=339, pady=29)
         #creating the second of the three shortcut buttons
-        self.button2 = Button(self.lbl, text="Email", font=('Arial 20'), bg="indian red", command=link_m, padx=339, pady=30)
+        self.button2 = Button(self.lbl, text="Email", font=('Arial 20'),fg="#001833", bg="#003d80", command=link_m, padx=339, pady=30)
         #creating the third of the three shortcut buttons
-        self.button3 = Button(self.lbl, text="Email", font=('Arial 20'), bg="#FFAEFF", command=link_m2, padx=339, pady=28)
+        self.button3 = Button(self.lbl, text="Email", font=('Arial 20'),fg="#001833", bg="#003d80", command=link_m2, padx=339, pady=28)
         #this button will activate search_query
-        self.search1 = Button(self.lbl_search1, text="Search", font=('Arial 12'), command=search_query, padx=1, pady=5)
+        self.search1 = Button(self.lbl_search1, text="Search",fg="#001833", bg="#003d80", font=('Arial 12 bold'), command=search_query, padx=1, pady=5)
         #this button will activate search_query2
-        self.search2 = Button(self.lbl_search2, text="Search", font=('Arial 12'), command=search_query2, padx=1, pady=5)
+        self.search2 = Button(self.lbl_search2, text="Search",fg="#001833", bg="#003d80", font=('Arial 12 bold'), command=search_query2, padx=1, pady=5)
         #this is a help button that activates popup
-        self.help_b = Button(self.lbl3, text="Help", bg="red4", font=('Arial 11'), command=popup, padx=11, pady=145)
+        self.help_b = Button(self.lbl3, text="Help", fg="#001833", bg="#003d80", font=('Arial 11'), command=popup, padx=11, pady=145)
 
         '''each line of code here is taking the previously
          created widgets self.>>widget variable name<< and then calling the grid() function to display that widget in the grid'''   
