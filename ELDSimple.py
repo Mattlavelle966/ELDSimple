@@ -44,30 +44,30 @@ class window(Frame):
         #creating the background frame 
         self.bg_frame = LabelFrame(self, bg="#001833", padx=10, pady=10)
         #creating inner frame with "ELDSimple"
-        self.lbl = LabelFrame(self.bg_frame, bg="#001833", fg="#0062cc", text="ELDSimple", padx=5, pady=5, font=('CenturySchoolbookl 10 bold'))
+        self.lbl = LabelFrame(self.bg_frame, bg="#001833", fg="#0062cc", text="ELDSimple", padx=5, pady=5, font=('CenturySchoolbookl 10 bold italic'))
         #lbl3 is creating a frame around our help button widget
-        self.lbl3 = LabelFrame(self.lbl, padx=5, pady=5, bg="red4",)
+        self.lbl3 = LabelFrame(self.lbl, padx=5, pady=5, bg="#0080ff",)
         #creating a frame for the search1 button         
-        self.lbl_search1 = LabelFrame(self.lbl, bg="goldenrod", padx=5, pady=5)
+        self.lbl_search1 = LabelFrame(self.lbl, bg="#0080ff", padx=5, pady=5)
         #creating a frame for the search2 button
-        self.lbl_search2 = LabelFrame(self.lbl, bg="maroon", padx=5, pady=5)
+        self.lbl_search2 = LabelFrame(self.lbl, bg="#0080ff", padx=5, pady=5)
         #creating a frame around the search google entry widget 
-        self.lbl_g_query = LabelFrame(self.lbl, bg="goldenrod", padx=5, pady=5)
+        self.lbl_g_query = LabelFrame(self.lbl, bg="#0080ff", padx=5, pady=5)
         #creating a frame around the youtube search entry widget 
-        self.lbl_yt_query = LabelFrame(self.lbl, bg="maroon", padx=5, pady=5)
+        self.lbl_yt_query = LabelFrame(self.lbl, bg="#0080ff", padx=5, pady=5)
         #entry widget where the user can enter whatever they would like to search on google
-        self.search_qg = Entry(self.lbl_g_query, width=50, font=("Arial 20"), bg="#003d80", fg="goldenrod")
+        self.search_qg = Entry(self.lbl_g_query, width=50, font=("Arial 20"), bg="#003d80", fg="#001833")
         #entry widget where the user can enter whatever they would like to search on youtube
-        self.search_yt = Entry(self.lbl_yt_query, width=50, font=("Arial 20"), bg="#003d80", fg="maroon")
+        self.search_yt = Entry(self.lbl_yt_query, width=50, font=("Arial 20"), bg="#003d80", fg="#001833")
       
 
 
         #creating the first of the three shortcut buttons 
         self.button1 = Button(self.lbl, text="Email", font=('Arial 20'),fg="#001833", bg="#003d80", command=link_e, padx=339, pady=29)
         #creating the second of the three shortcut buttons
-        self.button2 = Button(self.lbl, text="Email", font=('Arial 20'),fg="#001833", bg="#003d80", command=link_m, padx=339, pady=30)
+        self.button2 = Button(self.lbl, text="News", font=('Arial 20'),fg="#001833", bg="#003d80", command=link_m, padx=339, pady=30)
         #creating the third of the three shortcut buttons
-        self.button3 = Button(self.lbl, text="Email", font=('Arial 20'),fg="#001833", bg="#003d80", command=link_m2, padx=339, pady=28)
+        self.button3 = Button(self.lbl, text="Crypto", font=('Arial 20'),fg="#001833", bg="#003d80", command=link_m2, padx=332, pady=28)
         #this button will activate search_query
         self.search1 = Button(self.lbl_search1, text="Search",fg="#001833", bg="#003d80", font=('Arial 12 bold'), command=search_query, padx=1, pady=5)
         #this button will activate search_query2
@@ -163,15 +163,15 @@ def link_e():
 
 #opens url link
 def link_m():
-    webbrowser.open("https://mail.google.com/mail/u/0/#inbox")
+    webbrowser.open("https://www.cbc.ca/news")
 
 #opens url link
 def link_m2():
-    webbrowser.open("https://mail.google.com/mail/u/0/#inbox")
+    webbrowser.open("https://coinmarketcap.com")
 
 #opens url link
 def popup():
-    messagebox.askquestion('hello', 'hello')
+    messagebox.showinfo('Help', 'Please check your internet connection or contact ELDSimple@gmail.com.')
 
 #initiating window object equal to root  
 root = window()
