@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import webbrowser
+import sys
 
 url = "https://www.youtube.com/results?search_query="
 url2 = "https://www.google.com/search?client=firefox-b-d&q="
@@ -103,7 +104,7 @@ class window(Frame):
 
 #closes the program 
 def quitter(e):
-    quit()
+    sys.exit()
 
 #allows user to move the screen where ever you like 
 def move_app(e):
